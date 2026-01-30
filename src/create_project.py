@@ -1,43 +1,7 @@
 import sys
 from pathlib import Path
-
-PROJECT_STRUCTURE = [
-    "data/raw",
-    "data/processed",
-    "data/curated",
-
-    "notebooks",
-
-    "src/ingestion",
-    "src/cleaning",
-    "src/modeling",
-    "src/utils",
-
-    "sql/ddl",
-    "sql/dml",
-    "sql/analytics",
-
-    "dashboards",
-    "docs",
-]
-
-README_LOCATIONS = [
-    "",
-    "data",
-    "data/raw",
-    "data/processed",
-    "data/curated",
-    "dashboards",
-    "docs",
-]
-
-NOTEBOOKS = [
-    "01_eda_raw_data.ipynb",
-    "02_data_cleaning.ipynb",
-    "03_data_modeling.ipynb",
-    "04_business_analysis.ipynb",
-]
-
+from src.config import PROJECT_STRUCTURE, README_LOCATIONS, NOTEBOOKS
+from src.config import customers, products, regions, orders
 
 # ---------- Core structure ----------
 def create_directories(base_path: Path):
@@ -57,38 +21,71 @@ def create_notebooks(base_path: Path):
 
 
 def create_root_files(base_path: Path):
-    for file in [".gitignore", "requirements.txt"]:
-        (base_path / file).touch(exist_ok=True)
+    gitignore = base_path / ".gitignore"
+    gitignore.touch(exist_ok=True)
+
+    with gitignore.open("a", encoding="utf-8") as f:
+        f.write("\n# Python\n")
+        f.write("__pycache__/\n")
+        f.write(".venv/\n")
+        f.write(".env\n")
+        f.write("*.pyc\n")
+        f.write("__pycache__/\n")
+        f.write(".ipynb_checkpoints/\n")
+        f.write("logs/\n")
+
+    (base_path / "requirements.txt").touch(exist_ok=True)
+
+
+def create_logger(base_path: Path):
+    utils_path = base_path / "src" / "utils"
+    utils_path.mkdir(parents=True, exist_ok=True)
+
+    logger_file = utils_path / "logger.py"
+
+    logger_code = """import logging
+from pathlib import Path
+
+
+def setup_logger(
+    name: str = "edtech_pipeline",
+    log_file: str = "pipeline.log",
+    level: int = logging.INFO
+) -> logging.Logger:
+
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+
+    if logger.handlers:
+        return logger
+
+    formatter = logging.Formatter(
+        "%(asctime)s | %(levelname)s | %(message)s"
+    )
+
+    file_handler = logging.FileHandler(log_dir / log_file, encoding="utf-8")
+    file_handler.setFormatter(formatter)
+
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+
+    return logger
+"""
+
+    logger_file.write_text(logger_code, encoding="utf-8")
 
 
 # ---------- Sample data ----------
 def generate_sample_data(base_path: Path):
     raw_path = base_path / "data/raw"
 
-    customers = """customer_id,customer_name,segment
-1,Alice,Consumer
-2,Bob,Corporate
-3,Charlie,SMB
-"""
 
-    products = """product_id,product_name,category
-101,Laptop,Electronics
-102,Headphones,Electronics
-103,Desk,Furniture
-"""
-
-    regions = """region_id,region_name
-10,Europe
-11,North America
-12,Asia
-"""
-
-    orders = """order_id,order_date,customer_id,product_id,region_id,status,amount
-1001,2024-01-05,1,101,10,DELIVERED,1200.00
-1002,2024-01-06,2,103,11,CANCELLED,450.00
-1003,2024-01-07,1,102,10,SHIPPED,150.00
-1004,2024-02-02,3,101,12,DELIVERED,1150.00
-"""
 
     (raw_path / "customers.csv").write_text(customers)
     (raw_path / "products.csv").write_text(products)
@@ -109,7 +106,8 @@ def init_project(project_name: str, with_sample_data: bool):
     create_readmes(base_path)
     create_notebooks(base_path)
     create_root_files(base_path)
-
+    create_logger(base_path)
+    
     if with_sample_data:
         generate_sample_data(base_path)
         print("📦 Sample data generated in data/raw/")
