@@ -80,6 +80,44 @@ def setup_logger(
 
     logger_file.write_text(logger_code, encoding="utf-8")
 
+def create_init_files(base_path: Path):
+    init_paths = [
+        base_path / "src",
+        base_path / "src" / "utils",
+        base_path / "src" / "ingestion",
+        base_path / "src" / "cleaning",
+        base_path / "src" / "modeling",
+    ]
+
+    for path in init_paths:
+        (path / "__init__.py").touch(exist_ok=True)
+
+def create_run_pipeline(base_path: Path):
+    run_file = base_path / "run_pipeline.py"
+
+    run_code = """from src.utils.logger import setup_logger
+
+logger = setup_logger()
+
+
+def main():
+    logger.info("🚀 Pipeline started")
+
+    # TODO: ingestion
+    # TODO: cleaning
+    # TODO: modeling
+
+    logger.info("✅ Pipeline finished successfully")
+
+
+if __name__ == "__main__":
+    main()
+"""
+
+    run_file.write_text(run_code, encoding="utf-8")
+
+
+
 
 # ---------- Sample data ----------
 def generate_sample_data(base_path: Path):
@@ -107,6 +145,8 @@ def init_project(project_name: str, with_sample_data: bool):
     create_notebooks(base_path)
     create_root_files(base_path)
     create_logger(base_path)
+    create_init_files(base_path)
+    create_run_pipeline(base_path)
     
     if with_sample_data:
         generate_sample_data(base_path)
