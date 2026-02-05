@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-from src.config import PROJECT_STRUCTURE, README_LOCATIONS, NOTEBOOKS
+from src.config import PROJECT_STRUCTURE, README_LOCATIONS, NOTEBOOKS, INIT_PATHS
 from src.config import customers, products, regions, orders
 
 # ---------- Core structure ----------

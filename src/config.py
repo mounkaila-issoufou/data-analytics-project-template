@@ -1,31 +1,62 @@
 PROJECT_STRUCTURE = [
+    # ---------- DATA LAYER ----------
     "data/raw",
+    "data/staging",        # <-- staging
     "data/processed",
     "data/curated",
+    "data/analytics",      # <-- analytics (datasets finaux BI)
 
+    # ---------- ANALYSIS ----------
     "notebooks",
+    "reports/figures",
+    "reports/tables",
 
+    # ---------- CODE ----------
     "src/ingestion",
     "src/cleaning",
     "src/modeling",
+    "src/analytics",       # <-- analytics
+    "src/viz",             # <-- viz
     "src/utils",
 
+    # ---------- SQL ----------
     "sql/ddl",
     "sql/dml",
     "sql/analytics",
 
-    "dashboards",
+    # ---------- BI / DASHBOARDS ----------
+    "dashboards/powerbi",
+    "dashboards/looker",
+
+    # ---------- DOCS & QUALITY ----------
     "docs",
+    "tests",
+    "logs",
 ]
 
 README_LOCATIONS = [
     "",
     "data",
     "data/raw",
+    "data/staging",
     "data/processed",
     "data/curated",
+    "data/analytics",
+    "reports",
     "dashboards",
     "docs",
+    "sql",
+    "src",
+]
+
+INIT_PATHS = [
+    "src",
+    "src/ingestion",
+    "src/cleaning",
+    "src/modeling",
+    "src/analytics",
+    "src/viz",
+    "src/utils",
 ]
 
 NOTEBOOKS = [
@@ -33,7 +64,9 @@ NOTEBOOKS = [
     "02_data_cleaning.ipynb",
     "03_data_modeling.ipynb",
     "04_business_analysis.ipynb",
+    "05_dashboard.ipynb",      # <-- dashboard
 ]
+
 
 customers = """customer_id,customer_name,segment
 1,Alice,Consumer
