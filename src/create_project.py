@@ -35,6 +35,7 @@ def create_root_files(base_path: Path):
         f.write("logs/\n")
 
     (base_path / "requirements.txt").touch(exist_ok=True)
+    (base_path / "pyproject.toml").touch(exist_ok=True)
 
 
 def create_logger(base_path: Path):
@@ -81,16 +82,17 @@ def setup_logger(
     logger_file.write_text(logger_code, encoding="utf-8")
 
 def create_init_files(base_path: Path):
-    init_paths = [
-        base_path / "src",
-        base_path / "src" / "utils",
-        base_path / "src" / "ingestion",
-        base_path / "src" / "cleaning",
-        base_path / "src" / "modeling",
-    ]
 
-    for path in init_paths:
-        (path / "__init__.py").touch(exist_ok=True)
+    for location in INIT_PATHS:
+
+        target_dir = base_path / location
+
+        # S'assurer que le dossier existe
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        # Créer le __init__.py
+        (target_dir / "__init__.py").touch(exist_ok=True)
+
 
 def create_run_pipeline(base_path: Path):
     run_file = base_path / "run_pipeline.py"
