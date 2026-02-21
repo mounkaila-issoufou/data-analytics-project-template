@@ -1,0 +1,13 @@
+[project]
+name = "project-scaffolder"
+version = "0.1.0"
+description = "CLI tool to initialize a modular data project"
+authors = [{ name="Ton Nom" }]
+requires-python = ">=3.10"
+
+[project.scripts]
+project-scaffolder = "project_scaffolder.cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

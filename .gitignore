@@ -9,6 +9,16 @@ logs/.DS_Store
 logs/.gitkeep
 .vscode/
 .env
+.venv/
 .idea/
 *.pyc
 __pycache__/
+src/project_scaffolder/.DS_Store
+src/project_scaffolder/__pycache__/
+src/project_scaffolder/config.pyc
+src/project_scaffolder/project_scaffolder.egg-info/
+src/project_scaffolder/dist/
+src/project_scaffolder/build/
+src/project_scaffolder/.gitignore
+src/project_scaffolder/.vscode/
+src/project_scaffolder/.idea/

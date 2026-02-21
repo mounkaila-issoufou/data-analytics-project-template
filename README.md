@@ -91,16 +91,27 @@ Each project built with this template follows the steps below:
 - Ensure project continuity
 
 ---
-
-## 📁 Repository structure
-
 ```text
 .
-├── project_steps/ # Business and methodological documentation
-├── src/ # Reusable Python logic and automation
-├── templates/ # Markdown templates (KPIs, data dictionary, etc.)
-├── example_structure/ # Example project tree
-├── docs/ # Design decisions and explanations
+├── project_steps/            # Business & methodological documentation
+├── templates/                # Markdown templates (KPIs, data dictionary, etc.)
+├── example_structure/        # Example generated project tree
+├── docs/                     # Architecture & design decisions
+│
+├── src/
+│   └── project_scaffolder/   # Main Python package
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── pipeline.py
+│       ├── config.py
+│       ├── scaffold/
+│       ├── data/
+│       └── utils/
+│
+├── tests/                    # Unit tests
+│
+├── pyproject.toml            # Packaging configuration
+├── .gitignore
 └── README.md
 ```
 
@@ -136,6 +147,56 @@ It is especially relevant for:
 
 ---
 
+## 🚀 How to Run
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/---/project-scaffolder.git
+cd project-scaffolder
+```
+### 2️⃣ Create a virtual environment
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+**macOS / Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+**Windows**
+```bash
+.venv\Scripts\activate
+```
+
+### 3️⃣ Install the package in editable mode
+```bash
+pip install -e .
+```
+
+### 4️⃣ Run the CLI
+
+**Create a new project:**
+```bash
+project-scaffolder my_new_project
+```
+
+**With sample data:**
+```bash
+project-scaffolder my_new_project --with-sample-data
+```
+
+### 🛠 Alternative (without installation)
+
+You can run the package directly as a module:
+
+```bash
+python -m project_scaffolder my_new_project
+```
 ## 📌 Final note
 
 This template reflects **how I approach data projects**:
