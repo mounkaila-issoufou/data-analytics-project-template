@@ -197,6 +197,7 @@ You can run the package directly as a module:
 ```bash
 python -m project_scaffolder my_new_project
 ```
+
 ## 📌 Final note
 
 This template reflects **how I approach data projects**:
