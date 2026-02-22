@@ -1,7 +1,7 @@
 from pathlib import Path
 
-def create_logger(base_path: Path):
-    utils_path = base_path / "src" / "utils"
+def create_logger(base_path: Path, package_name: str):
+    utils_path = base_path / "src" / package_name / "utils"
     utils_path.mkdir(parents=True, exist_ok=True)
 
     logger_file = utils_path / "logger.py"

@@ -1,53 +1,77 @@
-PROJECT_STRUCTURE = [
-    # ---------- DATA LAYER ----------
-    "data/raw",
-    "data/staging",        # <-- staging
-    "data/processed",
-    "data/curated",
-    "data/analytics",      # <-- analytics (datasets finaux BI)
+"""
+Project configuration for project_scaffolder.
+"""
 
-    # ---------- ANALYSIS ----------
-    "notebooks",
-    "reports/figures",
-    "reports/tables",
+# ============================================================
+# PROJECT STRUCTURE (dynamic)
+# ============================================================
 
-    # ---------- CODE ----------
-    "src/ingestion",
-    "src/cleaning",
-    "src/modeling",
-    "src/analytics",       # <-- analytics
-    "src/viz",             # <-- viz
-    "src/utils",
+def build_project_structure(package_name: str):
+    return [
+        # ---------- DATA ----------
+        "data/raw",
+        "data/processed",
+        "data/curated",
 
-    # ---------- SQL ----------
-    "sql/ddl",
-    "sql/dml",
-    "sql/analytics",
+        # ---------- NOTEBOOKS ----------
+        "notebooks",
 
-    # ---------- BI / DASHBOARDS ----------
-    "dashboards/powerbi",
-    "dashboards/looker",
+        # ---------- SOURCE CODE (dynamic package) ----------
+        f"src/{package_name}",
+        f"src/{package_name}/ingestion",
+        f"src/{package_name}/cleaning",
+        f"src/{package_name}/modeling",
+        f"src/{package_name}/db",
+        f"src/{package_name}/utils",
 
-    # ---------- DOCS & QUALITY ----------
-    "docs",
-    "tests",
-    "logs",
-]
+        # ---------- SQL ----------
+        "sql/ddl",
+        "sql/dml",
+        "sql/analytics",
+
+        # ---------- DASHBOARDS ----------
+        "dashboards/powerbi",
+
+        # ---------- DOCUMENTATION ----------
+        "docs",
+
+        # ---------- TESTS ----------
+        "tests",
+    ]
+
+
+# ============================================================
+# README LOCATIONS
+# ============================================================
 
 README_LOCATIONS = [
     "",
     "data",
     "data/raw",
-    "data/staging",
     "data/processed",
     "data/curated",
-    "data/analytics",
-    "reports",
+    "notebooks",
     "dashboards",
     "docs",
     "sql",
     "src",
 ]
+
+
+# ============================================================
+# __init__.py PATHS (dynamic handling required in pipeline)
+# ============================================================
+
+def build_init_paths(package_name: str):
+    return [
+        f"src/{package_name}",
+        f"src/{package_name}/ingestion",
+        f"src/{package_name}/cleaning",
+        f"src/{package_name}/modeling",
+        f"src/{package_name}/db",
+        f"src/{package_name}/utils",
+    ]
+
 
 INIT_PATHS = [
     "src",
@@ -59,34 +83,42 @@ INIT_PATHS = [
     "src/utils",
 ]
 
+# ============================================================
+# NOTEBOOKS
+# ============================================================
+
 NOTEBOOKS = [
     "01_eda_raw_data.ipynb",
     "02_data_cleaning.ipynb",
     "03_data_modeling.ipynb",
     "04_business_analysis.ipynb",
-    "05_dashboard.ipynb",      # <-- dashboard
+    "05_dashboard.ipynb",
 ]
 
 
-customers = """customer_id,customer_name,segment
+# ============================================================
+# SAMPLE DATA (optional generation)
+# ============================================================
+
+CUSTOMERS_SAMPLE = """customer_id,customer_name,segment
 1,Alice,Consumer
 2,Bob,Corporate
 3,Charlie,SMB
 """
 
-products = """product_id,product_name,category
+PRODUCTS_SAMPLE = """product_id,product_name,category
 101,Laptop,Electronics
 102,Headphones,Electronics
 103,Desk,Furniture
 """
 
-regions = """region_id,region_name
+REGIONS_SAMPLE = """region_id,region_name
 10,Europe
 11,North America
 12,Asia
 """
 
-orders = """order_id,order_date,customer_id,product_id,region_id,status,amount
+ORDERS_SAMPLE = """order_id,order_date,customer_id,product_id,region_id,status,amount
 1001,2024-01-05,1,101,10,DELIVERED,1200.00
 1002,2024-01-06,2,103,11,CANCELLED,450.00
 1003,2024-01-07,1,102,10,SHIPPED,150.00

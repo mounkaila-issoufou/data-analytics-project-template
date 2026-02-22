@@ -8,7 +8,7 @@ from project_scaffolder.scaffold.logger import create_logger
 from project_scaffolder.data.sample_data import generate_sample_data
 
 
-def init_project(project_name: str, with_sample_data: bool):
+def init_project(project_name: str, package_name: str, with_sample_data: bool):
 
     base_path = Path(project_name)
 
@@ -16,14 +16,23 @@ def init_project(project_name: str, with_sample_data: bool):
         print(f"❌ Project '{project_name}' already exists.")
         sys.exit(1)
 
-    base_path.mkdir()
+    # Create base directory
+    base_path.mkdir(parents=True, exist_ok=False)
 
-    create_directories(base_path)
-    create_root_files(base_path)
-    create_logger(base_path)
-    create_init_files(base_path)
+    # Create full structure
+    create_directories(base_path, package_name)
 
+    # Create root-level files (README, pyproject, etc.)
+    create_root_files(base_path, package_name)
+
+    # Create logger config
+    create_logger(base_path, package_name)
+
+    # Create __init__.py files (dynamic package)
+    create_init_files(base_path, package_name)
+
+    # Optional sample data
     if with_sample_data:
-        generate_sample_data(base_path)
+        generate_sample_data(base_path, package_name)
 
     print(f"✅ Project '{project_name}' successfully initialized.")

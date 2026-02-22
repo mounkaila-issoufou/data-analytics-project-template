@@ -4,20 +4,30 @@ from project_scaffolder.pipeline import init_project
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="project-scaffolder",
-        description="Initialize a new data project structure"
+        prog="data-project",
+        description="Generate a data analytics project structure",
     )
 
-    parser.add_argument("project_name", help="Name of the project to create")
-    parser.add_argument(
+    subparsers = parser.add_subparsers(dest="command")
+
+    init_parser = subparsers.add_parser("init")
+    init_parser.add_argument(
         "--with-sample-data",
         action="store_true",
         help="Generate sample CSV files"
     )
+    init_parser.add_argument("name", help="Project folder name")
+    init_parser.add_argument(
+        "--package",
+        required=True,
+        help="Python package name (e.g. sales_orders)"
+    )
 
     args = parser.parse_args()
 
-    init_project(
-        project_name=args.project_name,
-        with_sample_data=args.with_sample_data
-    )
+    if args.command == "init":
+        init_project(
+            project_name=args.name,
+            with_sample_data=args.with_sample_data,
+            package_name=args.package
+        )
