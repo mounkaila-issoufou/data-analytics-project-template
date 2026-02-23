@@ -203,23 +203,23 @@ python -m project_scaffolder my_new_project
 
 This template is designed for:
 
-Data Analysts
+- Data Analysts
 
-Senior Data Analysts
+- Senior Data Analysts
 
-Analytics Engineers
+- Analytics Engineers
 
-Professionals building structured analytics workflows
+- Professionals building structured analytics workflows
 
 It is especially relevant for:
 
-Portfolio projects
+- Portfolio projects
 
-Take-home assignments
+- Take-home assignments
 
-Team standardization
+- Team standardization
 
-Analytics best-practice demonstrations
+- Analytics best-practice demonstrations
 
 
 ## 📌 Final note
