@@ -182,12 +182,12 @@ pip install -e .
 
 **Create a new project:**
 ```bash
-project-scaffolder my_new_project
+project-scaffolder init my_project --package my_package
 ```
 
 **With sample data:**
 ```bash
-project-scaffolder my_new_project --with-sample-data
+project-scaffolder init my_project --package my_package --with-sample-data
 ```
 
 ### 🛠 Alternative (without installation)
@@ -197,6 +197,30 @@ You can run the package directly as a module:
 ```bash
 python -m project_scaffolder my_new_project
 ```
+
+
+## 👤 Intended Audience
+
+This template is designed for:
+
+Data Analysts
+
+Senior Data Analysts
+
+Analytics Engineers
+
+Professionals building structured analytics workflows
+
+It is especially relevant for:
+
+Portfolio projects
+
+Take-home assignments
+
+Team standardization
+
+Analytics best-practice demonstrations
+
 
 ## 📌 Final note
 
