@@ -23,7 +23,7 @@ def init_project(project_name: str, package_name: str, with_sample_data: bool):
     create_directories(base_path, package_name)
 
     # Create root-level files (README, pyproject, etc.)
-    create_root_files(base_path, package_name)
+    create_root_files(base_path, project_name, package_name)
 
     # Create logger config
     create_logger(base_path, package_name)
