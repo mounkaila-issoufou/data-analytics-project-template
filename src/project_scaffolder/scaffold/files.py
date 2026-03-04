@@ -2,7 +2,9 @@ from pathlib import Path
 
 from project_scaffolder.config import README_LOCATIONS, NOTEBOOKS
 from project_scaffolder.templates.readme_template import build_project_readme
-
+from project_scaffolder.templates.precommit_template import build_project_precommit 
+from project_scaffolder.templates.docker_compose_tempale import build_project_docker_compose 
+from project_scaffolder.templates.changelog_template import build_project_changelog 
 
 # ============================================================
 # README FILES (folders)
@@ -58,3 +60,9 @@ def create_root_files(base_path: Path, project_name: str, package_name: str):
     # ---------- Other root files ----------
     (base_path / "requirements.txt").touch(exist_ok=True)
     (base_path / "pyproject.toml").touch(exist_ok=True)
+    (base_path / ".pre-commit-config.yaml").touch(exist_ok=True)
+    (base_path / ".pre-commit-config.yaml").write_text(build_project_precommit(project_name, package_name), encoding="utf-8")
+    (base_path / "docker-compose.yaml").touch(exist_ok=True)
+    (base_path / "docker-compose.yaml").write_text(build_project_docker_compose(project_name, package_name), encoding="utf-8")
+    (base_path / "CHANGELOG.md").touch(exist_ok=True)
+    (base_path / "CHANGELOG.md").write_text(build_project_changelog(project_name, package_name), encoding="utf-8")

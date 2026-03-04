@@ -28,6 +28,7 @@ def build_project_structure(package_name: str):
         "sql/ddl",
         "sql/dml",
         "sql/analytics",
+        "sql/reset",
 
         # ---------- DASHBOARDS ----------
         "dashboards/powerbi",
