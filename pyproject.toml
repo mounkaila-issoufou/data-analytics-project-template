@@ -2,12 +2,37 @@
 name = "project-scaffolder"
 version = "0.1.0"
 description = "CLI tool to initialize a modular data project"
-authors = [{ name="Ton Nom" }]
+authors = [{ name = "abdoul" }]
 requires-python = ">=3.10"
 
 [project.scripts]
 project-scaffolder = "project_scaffolder.cli:main"
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+# -----------------
+# Black configuration
+# -----------------
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+# -----------------
+# Ruff configuration
+# -----------------
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+fixable = ["ALL"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
