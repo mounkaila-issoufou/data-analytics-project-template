@@ -25,3 +25,5 @@ src/project_scaffolder/.idea/
 my_new_project/
 src/project_scaffolder.egg-info/
 src/project_scaffolder/dist/
+test_project/
+sales-performance/
