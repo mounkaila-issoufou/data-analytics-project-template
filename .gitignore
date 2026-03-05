@@ -22,6 +22,10 @@ src/project_scaffolder/build/
 src/project_scaffolder/.gitignore
 src/project_scaffolder/.vscode/
 src/project_scaffolder/.idea/
+src/project_scaffolder/data/_pycache__/
+src/project_scaffolder/notebooks/.ipynb_checkpoints/
+src/project_scaffolder/scaffold/_pycache__/
+src/project_scaffolder/templates/_pycache__/
 my_new_project/
 src/project_scaffolder.egg-info/
 src/project_scaffolder/dist/
