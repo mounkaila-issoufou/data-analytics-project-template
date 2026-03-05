@@ -1,11 +1,11 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
+from project_scaffolder.data.sample_data import generate_sample_data
 from project_scaffolder.scaffold.directories import create_directories
 from project_scaffolder.scaffold.files import create_root_files
 from project_scaffolder.scaffold.init_files import create_init_files
 from project_scaffolder.scaffold.logger import create_logger
-from project_scaffolder.data.sample_data import generate_sample_data
 
 
 def init_project(project_name: str, package_name: str, with_sample_data: bool):

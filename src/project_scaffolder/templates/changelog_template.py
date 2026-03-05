@@ -1,5 +1,5 @@
 def build_project_changelog(project_name: str, package_name: str) -> str:
-    return f"""
+    return """
 
 # Changelog
 

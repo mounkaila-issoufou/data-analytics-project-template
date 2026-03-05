@@ -1,6 +1,7 @@
 from pathlib import Path
-from project_scaffolder.config import INIT_PATHS
+
 from project_scaffolder.config import build_init_paths
+
 
 def create_init_files(base_path: Path, package_name: str):
     init_paths = build_init_paths(package_name)

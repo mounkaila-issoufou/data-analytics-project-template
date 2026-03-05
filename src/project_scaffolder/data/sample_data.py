@@ -1,5 +1,12 @@
 from pathlib import Path
-from project_scaffolder.config import CUSTOMERS_SAMPLE, PRODUCTS_SAMPLE, REGIONS_SAMPLE, ORDERS_SAMPLE
+
+from project_scaffolder.config import (
+    CUSTOMERS_SAMPLE,
+    ORDERS_SAMPLE,
+    PRODUCTS_SAMPLE,
+    REGIONS_SAMPLE,
+)
+
 
 def generate_sample_data(base_path: Path, package_name: str):
     raw_path = base_path / "data/raw"

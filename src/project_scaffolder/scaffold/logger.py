@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 def create_logger(base_path: Path, package_name: str):
     utils_path = base_path / "src" / package_name / "utils"
     utils_path.mkdir(parents=True, exist_ok=True)
@@ -40,5 +41,5 @@ def setup_logger(
 
     return logger
 """,
-        encoding="utf-8"
+        encoding="utf-8",
     )

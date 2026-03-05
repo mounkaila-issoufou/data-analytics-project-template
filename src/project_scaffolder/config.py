@@ -6,16 +6,15 @@ Project configuration for project_scaffolder.
 # PROJECT STRUCTURE (dynamic)
 # ============================================================
 
+
 def build_project_structure(package_name: str):
     return [
         # ---------- DATA ----------
         "data/raw",
         "data/processed",
         "data/curated",
-
         # ---------- NOTEBOOKS ----------
         "notebooks",
-
         # ---------- SOURCE CODE (dynamic package) ----------
         f"src/{package_name}",
         f"src/{package_name}/ingestion",
@@ -23,19 +22,15 @@ def build_project_structure(package_name: str):
         f"src/{package_name}/modeling",
         f"src/{package_name}/db",
         f"src/{package_name}/utils",
-
         # ---------- SQL ----------
         "sql/ddl",
         "sql/dml",
         "sql/analytics",
         "sql/reset",
-
         # ---------- DASHBOARDS ----------
         "dashboards/powerbi",
-
         # ---------- DOCUMENTATION ----------
         "docs",
-
         # ---------- TESTS ----------
         "tests",
     ]
@@ -62,6 +57,7 @@ README_LOCATIONS = [
 # ============================================================
 # __init__.py PATHS (dynamic handling required in pipeline)
 # ============================================================
+
 
 def build_init_paths(package_name: str):
     return [
