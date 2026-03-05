@@ -112,6 +112,9 @@ Each project built with this template follows the steps below:
 │
 ├── pyproject.toml            # Packaging configuration
 ├── .gitignore
+├── Makefile
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
 ```
 
@@ -197,6 +200,10 @@ You can run the package directly as a module:
 ```bash
 python -m project_scaffolder my_new_project
 ```
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for project history.
 
 
 ## 👤 Intended Audience
