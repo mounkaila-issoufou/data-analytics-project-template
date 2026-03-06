@@ -2,6 +2,7 @@ test_project/
 .DS_Store
 src/__pycache__/
 src/config.pyc
+data/_pycache__/
 data/raw/.DS_Store
 data/processed/.DS_Store
 notebooks/.ipynb_checkpoints/
@@ -31,3 +32,5 @@ src/project_scaffolder.egg-info/
 src/project_scaffolder/dist/
 test_project/
 sales-performance/
+.ruff_cache/
+my_project/

@@ -8,6 +8,7 @@ requires-python = ">=3.10"
 [project.scripts]
 project-scaffolder = "project_scaffolder.cli:main"
 
+
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -36,3 +37,7 @@ quote-style = "double"
 indent-style = "space"
 
 
+[tool.pytest.ini_options]
+testpaths = [
+    "src/project_scaffolder/tests"
+]
