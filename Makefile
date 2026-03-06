@@ -11,7 +11,7 @@ format:
 	isort src
 
 test:
-	pytest
+	pytest -v
 
 run:
 	python -m project_scaffolder

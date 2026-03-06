@@ -1,15 +1,15 @@
 import sys
 from pathlib import Path
 
-from data.sample_data import generate_sample_data
-from scaffold.directories import create_directories
-from scaffold.files import (
+from .data.sample_data import generate_sample_data
+from .scaffold.directories import create_directories
+from .scaffold.files import (
     create_notebooks,
     create_readmes,
     create_root_files,
 )
-from scaffold.init_files import create_init_files
-from scaffold.logger import create_logger
+from .scaffold.init_files import create_init_files
+from .scaffold.logger import create_logger
 
 
 def init_project(project_name: str, with_sample_data: bool):
