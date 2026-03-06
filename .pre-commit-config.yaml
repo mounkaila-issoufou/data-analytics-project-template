@@ -16,3 +16,12 @@ repos:
         language: system
       - id: ruff-format
         language: system
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
