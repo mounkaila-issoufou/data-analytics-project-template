@@ -34,3 +34,5 @@ test_project/
 sales-performance/
 .ruff_cache/
 my_project/
+.coverage
+htmlcov/
