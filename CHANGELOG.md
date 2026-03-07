@@ -2,10 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on **Keep a Changelog**
+The format is based on **Keep a Changelog**  
 https://keepachangelog.com/en/1.0.0/
 
-This project adheres to **Semantic Versioning**
+This project adheres to **Semantic Versioning**  
 https://semver.org/
 
 ---
@@ -14,32 +14,35 @@ https://semver.org/
 
 ### Added
 - CLI entry point for project scaffolding
-- Project scaffolder architecture (`project_scaffolder`)
-- Support for generating full data analysis project structures
-- Project templates system
+- Modular project scaffolder architecture (`project_scaffolder`)
+- Template system for project file generation
 - Pre-commit configuration template
 - Docker compose template
 - Changelog template
-- Tests folder generation
-- Logging utility for generated projects
 - SQL project structure (`analytics`, `ddl`, `dml`, `reset`)
+- Logging utility for generated projects
+- Automatic test suite for the scaffolder
+- CI pipeline for automated testing
+- Test coverage reporting (94%)
 
 ### Changed
 - Refactored scaffolding architecture
 - Improved configuration management
 - Improved README project template
-- Improved file generation logic
+- Improved root file generation logic
+- Improved code formatting and linting workflow
 
 ### Generated Project Improvements
 Generated projects now include:
 
 - Structured data directories (`raw`, `processed`, `curated`)
-- SQL structure
 - Modular Python source structure
-- Notebooks workflow
+- SQL project structure
+- Notebook workflow
 - Dashboard directories (PowerBI / Looker)
 - Tests directory
 - Logs directory
+- Pre-configured project documentation
 
 ---
 
@@ -52,4 +55,3 @@ Generated projects now include:
 - Modular Python source folders
 - SQL folder structure
 - Sample data generation
-
