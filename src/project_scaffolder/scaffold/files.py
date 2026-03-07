@@ -14,10 +14,14 @@ from project_scaffolder.templates.readme_template import build_project_readme
 
 
 def create_readmes(base_path: Path):
+
     for location in README_LOCATIONS:
         readme_path = base_path / location / "README.md"
+
         readme_path.parent.mkdir(parents=True, exist_ok=True)
-        readme_path.touch(exist_ok=True)
+
+        if not readme_path.exists():
+            readme_path.touch()
 
 
 # ============================================================
@@ -26,11 +30,15 @@ def create_readmes(base_path: Path):
 
 
 def create_notebooks(base_path: Path):
+
     notebooks_path = base_path / "notebooks"
     notebooks_path.mkdir(parents=True, exist_ok=True)
 
     for nb in NOTEBOOKS:
-        (notebooks_path / nb).touch(exist_ok=True)
+        notebook = notebooks_path / nb
+
+        if not notebook.exists():
+            notebook.touch()
 
 
 # ============================================================
@@ -56,18 +64,41 @@ def create_root_files(base_path: Path, project_name: str, package_name: str):
             encoding="utf-8",
         )
 
-    # ---------- Other root files ----------
-    (base_path / "requirements.txt").touch(exist_ok=True)
-    (base_path / "pyproject.toml").touch(exist_ok=True)
-    (base_path / ".pre-commit-config.yaml").touch(exist_ok=True)
-    (base_path / ".pre-commit-config.yaml").write_text(
-        build_project_precommit(project_name, package_name), encoding="utf-8"
-    )
-    (base_path / "docker-compose.yaml").touch(exist_ok=True)
-    (base_path / "docker-compose.yaml").write_text(
-        build_project_docker_compose(project_name, package_name), encoding="utf-8"
-    )
-    (base_path / "CHANGELOG.md").touch(exist_ok=True)
-    (base_path / "CHANGELOG.md").write_text(
-        build_project_changelog(project_name, package_name), encoding="utf-8"
-    )
+    # ---------- requirements ----------
+    requirements = base_path / "requirements.txt"
+
+    if not requirements.exists():
+        requirements.touch()
+
+    # ---------- pyproject ----------
+    pyproject = base_path / "pyproject.toml"
+
+    if not pyproject.exists():
+        pyproject.touch()
+
+    # ---------- pre-commit ----------
+    precommit = base_path / ".pre-commit-config.yaml"
+
+    if not precommit.exists():
+        precommit.write_text(
+            build_project_precommit(project_name, package_name),
+            encoding="utf-8",
+        )
+
+    # ---------- docker compose ----------
+    docker_compose = base_path / "docker-compose.yaml"
+
+    if not docker_compose.exists():
+        docker_compose.write_text(
+            build_project_docker_compose(project_name, package_name),
+            encoding="utf-8",
+        )
+
+    # ---------- changelog ----------
+    changelog = base_path / "CHANGELOG.md"
+
+    if not changelog.exists():
+        changelog.write_text(
+            build_project_changelog(project_name, package_name),
+            encoding="utf-8",
+        )

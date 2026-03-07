@@ -1,8 +1,10 @@
 from project_scaffolder.scaffold.directories import create_directories
 
 
-def test_create_directories(package_name: str, tmp_path):
-    project_path = tmp_path / "test_project"
+def test_create_directories(tmp_path):
+    package_name = "test_project"
+
+    project_path = tmp_path / package_name
 
     create_directories(project_path, package_name)
 
