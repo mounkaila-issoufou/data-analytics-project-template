@@ -28,6 +28,7 @@
 [![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)](#ci-cd)
 [![Black](https://img.shields.io/badge/Code%20Style-Black-000000?style=flat-square&logo=python&logoColor=white)](https://black.readthedocs.io/)
 [![Ruff](https://img.shields.io/badge/Linting-Ruff-46A2F1?style=flat-square)](https://docs.astral.sh/ruff/)
+![Coverage](https://img.shields.io/badge/coverage-94%25-brightgreen)
 [![Architecture](https://img.shields.io/badge/Architecture-Industrial_Grade-6A1B9A?style=flat-square)](#system-architecture)
 [![Configuration](https://img.shields.io/badge/Config-Environment_Based-4CAF50?style=flat-square)](#configuration)
 
