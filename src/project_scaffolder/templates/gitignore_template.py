@@ -1,0 +1,32 @@
+def build_project_gitignore(project_name: str, package_name: str) -> str:
+    return rf"""
+logs/
+__pycache__/
+*.pyc
+.env
+.vscode/
+src/__pycache__/
+src/db/__pycache__/
+src/utils/__pycache__/
+*.egg-info/
+build/
+dist/
+src/tests/__pycache__/
+src/tests/unit/__pycache__/
+src/tests/integration/__pycache__/
+src/tests/data_quality/__pycache__/
+src/{package_name}/cleaning/__pycache__/
+src/{package_name}/ingestion/__pycache__/
+src/{package_name}/modeling/__pycache__/
+src/{package_name}/orchestration/__pycache__/
+src/{package_name}/db/__pycache__/
+.coverage
+htmlcov/
+.pytest_cache/
+__pytest_cache__/
+.pytest_cache/
+.ruff_cache/
+src/{package_name}/{package_name}.egg-info/
+.venv/
+venv/
+"""

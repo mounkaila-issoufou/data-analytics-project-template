@@ -1,0 +1,30 @@
+def build_project_ci(project_name: str, package_name: str) -> str:
+    return r"""
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          pip install pytest pytest-cov
+
+      - name: Run tests
+        env:
+          PYTHONPATH: src
+        run: pytest --cov=src
+ """

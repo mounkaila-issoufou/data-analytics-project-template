@@ -20,6 +20,8 @@ def build_project_structure(package_name: str):
         f"src/{package_name}/ingestion",
         f"src/{package_name}/cleaning",
         f"src/{package_name}/modeling",
+        f"src/{package_name}/analytics",
+        f"src/{package_name}/orchestration",
         f"src/{package_name}/db",
         f"src/{package_name}/utils",
         # ---------- SQL ----------
@@ -31,8 +33,6 @@ def build_project_structure(package_name: str):
         "dashboards/powerbi",
         # ---------- DOCUMENTATION ----------
         "docs",
-        # ---------- TESTS ----------
-        "tests",
     ]
 
 
@@ -65,8 +65,13 @@ def build_init_paths(package_name: str):
         f"src/{package_name}/ingestion",
         f"src/{package_name}/cleaning",
         f"src/{package_name}/modeling",
+        f"src/{package_name}/analytics",
+        f"src/{package_name}/orchestration",
         f"src/{package_name}/db",
         f"src/{package_name}/utils",
+        "src/tests",
+        "src/tests/integration",
+        "src/tests/unit",
     ]
 
 
@@ -76,8 +81,12 @@ INIT_PATHS = [
     "src/cleaning",
     "src/modeling",
     "src/analytics",
+    "src/orchestration",
     "src/viz",
     "src/utils",
+    "src/tests",
+    "src/tests/integration",
+    "src/tests/unit",
 ]
 
 # ============================================================
