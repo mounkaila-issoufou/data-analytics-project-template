@@ -1,8 +1,11 @@
 import argparse
 
+import click
+
 from project_scaffolder.pipeline import init_project
 
 
+@click.group()
 def main():
     parser = argparse.ArgumentParser(
         prog="data-project",
@@ -28,3 +31,10 @@ def main():
             with_sample_data=args.with_sample_data,
             package_name=args.package,
         )
+
+
+@main.command()
+@click.argument("name")
+def init(name):
+    """Create a new data project."""
+    print(f"Creating project {name}")

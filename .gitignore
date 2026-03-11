@@ -36,3 +36,6 @@ sales-performance/
 my_project/
 .coverage
 htmlcov/
+dist/
+build/
+*.egg-info/

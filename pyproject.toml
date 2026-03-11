@@ -2,8 +2,15 @@
 name = "project-scaffolder"
 version = "0.1.0"
 description = "CLI tool to initialize a modular data project"
-authors = [{ name = "abdoul" }]
+authors = [{ name = "abdoul", email="mounkaila.issoufou025@gmail.com" }]
 requires-python = ">=3.10"
+
+readme = "README.md"
+
+dependencies = [
+  "click",
+  "pyyaml"
+]
 
 [project.scripts]
 project-scaffolder = "project_scaffolder.cli:main"
