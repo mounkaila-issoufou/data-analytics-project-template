@@ -3,7 +3,7 @@
 <!-- ========================= -->
 
 [![Version](https://img.shields.io/badge/Version-0.1.0-0066cc?style=flat-square)](#versioning)
-[![Status](https://img.shields.io/badge/Status-Production-brightgreen?style=flat-square)](#project-status)
+[![Status](https://img.shields.io/badge/Status-Scaffolder-brightgreen?style=flat-square)](#project-status)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#license)
 ![PyPI](https://img.shields.io/pypi/v/project-scaffolder)
 
@@ -49,7 +49,7 @@ It reflects how a **senior Data Analyst / Analytics Engineer** approaches a proj
 starting from business questions, enforcing data governance, and delivering reliable insights.
 
 ---
-## ❓ Why most analytics projects fail
+## Why most analytics projects fail
 
 - Start with notebooks, not business questions
 - Mix exploration and production logic
@@ -60,7 +60,7 @@ starting from business questions, enforcing data governance, and delivering reli
 This template solves these problems.
 
 
-## 🎯 Purpose of this repository
+## Purpose of this repository
 
 The goal of this template is to:
 
@@ -75,7 +75,7 @@ It is a **methodology and structure** that can be reused across projects.
 
 ---
 
-## 🧠 Project philosophy
+## Project philosophy
 
 A data project should answer business questions **before** manipulating data.
 
