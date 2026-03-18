@@ -48,6 +48,16 @@ A professional, business-driven framework to structure end-to-end data analytics
 It reflects how a **senior Data Analyst / Analytics Engineer** approaches a project:
 starting from business questions, enforcing data governance, and delivering reliable insights.
 
+Short description of the project.
+
+## 🚀 Demo
+
+This demo shows how to initialize and run the data pipeline in seconds.
+
+<p align="center">
+  <img src="assets/demo.gif" width="700"/>
+</p>
+
 ---
 ## Why most analytics projects fail
 
